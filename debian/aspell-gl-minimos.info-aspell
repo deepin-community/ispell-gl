@@ -1,0 +1,14 @@
+Language: galego-minimos (Galician-minimos)
+Hash-Name: galician-minimos
+Emacsen-Name: galego-minimos
+Casechars: [a-z\361\341\351\355\363\372\374A-Z\321\301\311\315\323\332\334]
+Not-Casechars: [^a-z\361\341\351\355\363\372\374A-Z\321\301\311\315\323\332\334]
+Otherchars: [-]
+Many-Otherchars:
+Additionalchars: áéíñóúüÁÉÍÑÓÚÜ
+Ispell-Args: -B
+Extended-Character-Mode:
+Aspell-Locales: gl, gl_ES, gl_ES@minimos
+Coding-System: iso-8859-1
+Locale: gl_es
+Auto-Compat: gl-minimos

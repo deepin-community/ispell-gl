@@ -1,0 +1,4 @@
+aspell-gl-minimos: national-encoding usr/lib/aspell/gl-minimos_affix.dat
+aspell-gl-minimos: national-encoding usr/lib/aspell/gl-minimos_phonet.dat
+aspell-gl-minimos: national-encoding var/lib/dictionaries-common/aspell/aspell-gl-minimos
+aspell-gl-minimos: wrong-section-according-to-package-name aspell-gl-minimos => localization

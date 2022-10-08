@@ -1,0 +1,5 @@
+ispell-gl source: national-encoding debian/aspell-gl-minimos.info-aspell
+ispell-gl source: national-encoding debian/aspell/gl-minimos_phonet.dat
+ispell-gl source: national-encoding debian/gl_ES.myheader
+ispell-gl source: national-encoding debian/igalician-minimos.info-ispell
+ispell-gl source: maintainer-manual-page debian/galician-minimos.5

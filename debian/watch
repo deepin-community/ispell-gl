@@ -1,0 +1,6 @@
+# format version number, currently 2; this line is compulsory!
+version=4
+# Site		Directory		Pattern			Version	Script
+#http://prdownloads.sourceforge.net/ispell-gl/ispell-gl-(.*)\.tar\.gz	debian	uupdate
+# Better use the qa.debian.org redirector, avoiding SF's difficult mirror system.
+https://sf.net/ispell-gl/ispell-gl-(.+)\.tar\.gz debian uupdate

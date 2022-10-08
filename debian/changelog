@@ -1,0 +1,541 @@
+ispell-gl (0.5-48) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    + Build-Depends-Indep: Drop versioned constraint on
+    dictionaries-common-dev.
+
+  [ Agustin Martin Domingo ]
+  * Use dh_* debhelper sequencer.
+  * No need for {usr,var}/lib/{ispell,aspell}/hash like symlinks.
+  * Bump debian/watch version.
+  * debian/galician-minimos: no need to refer to ancient usr/dict
+    location.
+  * debian/copyright: make DEP5.
+  * debian/control:
+    - Add Rules-Requires-Root: no.
+    - Bump Standards-Version: No changes required.
+    - Bump debhelper-compat to 13.
+  * Add some overrides.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 05 Oct 2021 00:43:42 +0200
+
+ispell-gl (0.5-47) unstable; urgency=low
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 28 Dec 2020 18:01:56 +0100
+
+ispell-gl (0.5-46) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/watch: Use https protocol
+
+  [ Agustin Martin Domingo ]
+  * d/control: Bump Standards-Version. No changes required.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 15 Nov 2018 16:11:10 +0100
+
+ispell-gl (0.5-45) unstable; urgency=medium
+
+  * Convert docs to utf-8. Thanks Pander (Closes: #901400).
+  * debian/rules: Cosmetic changes for better readability.
+  * debian/*.info-{a,l}spell: Use octal representation for Casechars and
+    Not-Casechars.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 14 Jun 2018 17:13:43 +0200
+
+ispell-gl (0.5-44) unstable; urgency=medium
+
+  * debian/control:
+    - Update Vcs-Browser and Vcs-Git for salsa migration.
+    - Bump Standards-Version. No changes required.
+  * Bump debhelper compat level to 11.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri, 04 May 2018 15:09:32 +0200
+
+ispell-gl (0.5-43) unstable; urgency=medium
+
+  * debian/control: Fix forgotten typo, Thanks Pascal De Vuyst
+    (Closes: #745287).
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 30 Jun 2015 11:40:43 +0200
+
+ispell-gl (0.5-42) unstable; urgency=medium
+
+  * debian/rules: Build in a reproducible and known to work LC_ALL=C
+    language environment.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 22 Jun 2015 12:49:29 +0200
+
+ispell-gl (0.5-41) unstable; urgency=medium
+
+  * debian/rules: Make the build reproducible.
+    Thanks Chris Lamb (Closes: #778262).
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 09 Apr 2015 17:41:27 +0200
+
+ispell-gl (0.5-40) unstable; urgency=low
+
+  * debian/control:
+    - Make aspell-gl-minimos "Multi-Arch: foreign" (See aspell-en #763892).
+    - Update Vcs-Browser to cgit address.
+    - Bump Standards-Version. No changes required.
+    - Cosmetic changes.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 06 Oct 2014 15:37:36 +0200
+
+ispell-gl (0.5-39) unstable; urgency=low
+
+  * debian/control: Fix some minor typos. Thanks Pascal De Vuyst
+    (Closes: #745287,745288).
+  * No longer ship /var/lib/{a,i}spell directories. Change Build-Deps
+    accordingly.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 22 Apr 2014 20:57:36 +0200
+
+ispell-gl (0.5-38) unstable; urgency=low
+
+  * Rebuild against sid dictionaries-common-dev 1.23.0.
+  * debian/rules: Compact cwl creation to an one-liner (LP: #73308).
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 09 Apr 2014 15:47:00 +0200
+
+ispell-gl (0.5-37~exp1) experimental; urgency=low
+
+  * Rebuild against experimental dictionaries-common-dev
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 06 Mar 2014 20:07:51 +0100
+
+ispell-gl (0.5-36) unstable; urgency=low
+
+  * Modify to use dictionaries-common-dev (>= 1.22.0) features:
+    - ${ispell:Depends}, ${aspell:Depends}, ${wordlist:Depends}
+    - Deal with remove files in debhelper snippet.
+  * debian/control:
+    - Bump Standards Version. No changes required.
+    - Canonicalize VCS-* headers.
+  * debian/watch: Remove ancient dh_make header.
+  * Update debian/copyright.
+  * Add debian/source/format for 3.0 (quilt).
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 04 Mar 2014 19:04:09 +0100
+
+ispell-gl (0.5-35) unstable; urgency=low
+
+  * debian/rules:
+    - Fix lintian debian-rules-missing-recommended-target build-{arch,indep}.
+    - Make sure wordlist is sorted and repeated words skipped.
+    - Make sure wordlist is UTF-8 encoded.
+  * Use auto-compat feature to avoid modification of placeholders
+    shipped under /var by ispell and aspell maintainer scripts. Needs
+    dictionaries-common-dev (>=1.11.2)
+  * debian/control: Bump Standards-Version. No changes required.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 14 Sep 2011 18:27:03 +0200
+
+ispell-gl (0.5-34) unstable; urgency=low
+
+  * debian/README.Debian: Fix spelling error (This packages->these packages)
+  * Raise Standards-Version to 3.8.3. No changes required.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 18 Jan 2010 12:55:08 +0100
+
+ispell-gl (0.5-33) unstable; urgency=low
+
+  * debian/*.info-*spell:
+    - Do not explicitly add '-d <hash>' to ispell-args. New
+      dictionaries-common will take care of that.
+  * debian/control:
+    - Build Dep on at least dictionaries-common-dev 1.2 to use
+      new debhelper snippets.
+  * Raise debhelper compat level to 7. Use dh_prep.
+  * Raise Standards-Version to 3.8.1. No changes required.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 16 Mar 2009 00:42:53 +0100
+
+ispell-gl (0.5-32) unstable; urgency=low
+
+  * Drop myspell-gl-es, superceded by hunspell-gl-es.
+  * debian/control: Add ${misc:Depends} where needed.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 16 Feb 2009 12:09:08 +0100
+
+ispell-gl (0.5-31) unstable; urgency=low
+
+  * debian/control:
+    - Bumped Standards-Version to 3.8.0. No changes required
+    - Reorganize Build-Depends-Indep for better readability.
+  * debian/rules:
+    - Use 'prezip -s' for aspell dict.
+    - Use best gzip compression.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 01 Oct 2008 14:13:38 +0200
+
+ispell-gl (0.5-30) unstable; urgency=low
+
+  * README.minimos:
+    - New doc with more details about current state of the 'minimos' standard.
+  * debian/control: Added Vcs and Homepage fields.
+  * aspell official dict:
+    - debian/aspell/info, debian/rules:
+      + Adapted for the new proc script.
+      + Fixed URL.
+      + Added myself as aspell dict maintainer.
+      + Use gl rather than galician-minimos, also in aspell dict name.
+      + Keep gl-minimos alias
+      + Dict is not complete.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 04 Jun 2008 14:14:46 +0200
+
+ispell-gl (0.5-29) unstable; urgency=low
+
+  * debian/copyright:
+    - Minor fixes
+  * debian/control:
+    - Updated to use the new iceape-browser, iceweasel, icedove names.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 21 Feb 2008 12:35:38 +0100
+
+ispell-gl (0.5-28) unstable; urgency=low
+
+  * debian/control:
+    - Bumped standards version to 3.7.3. No changes needed
+  * Move reconfigure compat initialization from config to
+    postinst. debian/aspell-gl-minimos.overrides is no longer needed.
+  * debian/rules: Removed unused stuff from binary-arch rule.
+  * debian/copyright: Recoded to utf-8
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 14 Jan 2008 13:42:45 +0100
+
+ispell-gl (0.5-27) unstable; urgency=low
+
+  * debian/watch:
+    - Modified to use the qa.debian.org redirector, avoiding
+      SF's difficult mirror system (Closes: #450180).
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 07 Nov 2007 13:49:42 +0100
+
+ispell-gl (0.5-26) unstable; urgency=low
+
+  * debian/control::Build-Depends-Indep:
+    - Added alternative dependency on myspell-tools
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri, 29 Jun 2007 11:58:01 +0200
+
+ispell-gl (0.5-25) unstable; urgency=low
+
+  * debian/control::Build-Depends-Indep:
+    - hunspell-tools is added and preferred over libmyspell-dev.
+      ispellaff2myspell is also there in sid.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 21 May 2007 17:12:53 +0200
+
+ispell-gl (0.5-24) unstable; urgency=low
+
+  * debian/rules, debian/aspell/*:
+    - First cut for building official aspell dict out of ispell-gl.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 13 Feb 2007 14:10:34 +0100
+
+ispell-gl (0.5-23) unstable; urgency=medium
+
+  * debian/rules:
+    - Do not create md5sums for var/lib/aspell and var/lib/ispell
+      contents.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 29 Nov 2006 13:48:59 +0100
+
+ispell-gl (0.5-22) unstable; urgency=low
+
+  * debian/control:
+    - Moved debhelper to Build-Depends. It is required to run the
+      clean target of debian/rules and therefore must be listed in
+      Build-Depends, even if no architecture-dependent packages
+      are built (Policy Manual, section 7.6). Thanks lintian for
+      the check and Pierre Habouzit for reminding.
+    - Raise Standards-Version to 3.7.2. No changes required.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri, 16 Jun 2006 14:11:26 +0200
+
+ispell-gl (0.5-21) unstable; urgency=low
+
+  * debian/rules: Fixed harmless typo in ispellaff2myspell call.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu,  4 May 2006 11:50:02 +0200
+
+ispell-gl (0.5-20) unstable; urgency=low
+
+  * debian/control: Fixed some misspellings in descriptions (closes: #363958)
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri, 21 Apr 2006 11:32:34 +0200
+
+ispell-gl (0.5-19) unstable; urgency=low
+
+  * Improve and simplify aspell-gl-minimos reconfiguration code.
+  * Update debian/watch file and copyright notice.
+  * Raised aspell-gl-minimos dependency on dictionaries-common
+  * debian/control: Use ${misc:Depends} where appropriate.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 30 Mar 2006 12:49:11 +0200
+
+ispell-gl (0.5-18) unstable; urgency=low
+
+  * debian/control: Make debcheck QA page happy
+    - Fix myspell-es suggestions.
+    - igalician-minimos now suggests wgalician-minimos instead
+      of non-existant wgalician.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri, 16 Sep 2005 16:38:48 +0200
+
+ispell-gl (0.5-17) unstable; urgency=low
+
+  * debian/control:
+    - Add "| debconf-2.0" to {i,w}galician-minimos debconf
+      dependencies to unblock installation of cdebconf
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu,  1 Sep 2005 17:09:33 +0200
+
+ispell-gl (0.5-16) unstable; urgency=low
+
+  * Modified to use aspell-autobuildhash and aspell (>= 0.60.3-2):
+    - debian/control:
+      · aspell-gl-minimos is now arch: all, provides
+        aspell-dictionary and depends on
+        dictionaries-common (>= 0.40) and aspell (>= 0.60.3-2)
+      · Bumped Standards-Version to 3.6.2 (no changes required)
+    - debian/rules:
+      · Adapted for aspell-autobuildhash
+      · Moved aspell-gl-minimos to the binary-indep target
+      · Changed aspell lib/data dir to /usr/lib/aspell
+      · Removed compat definition and migrated as '4' to
+        debian/compat file. Bumped debhelper Build Dependency to >> 4.
+    - debian/aspell-gl-minimos.{dirs,links}
+      · Changed aspell lib/data dir to /usr/lib/aspell
+    - debian/aspell-gl-minimos.config:
+      · Make sure hashes are committed for rebuilding when package
+        is reconfigured
+    - debian/gl-ES.myheader:
+      · Refer to the original copyright file
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 12 Jul 2005 13:33:38 +0200
+
+ispell-gl (0.5-15) unstable; urgency=low
+
+  * debian/control: versioning libaspell15 dependency to (>= 0.60)
+  * debian/copyright: Set copyright of galician_phonet.dat and
+    gl_ES.replaces files
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 24 Feb 2005 18:50:43 +0100
+
+ispell-gl (0.5-14) unstable; urgency=low
+
+  * And now really updated to aspell 0.60
+    - debian/control:
+       + Changed aspell-bin Build-Depends to (> 0.60)
+       + aspell-gl-minimos now provides aspell6-dictionary
+    - debian/rules, debian/galician-minimos.dat:
+       + Adapted to use aspell 0.60 affix compression.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 17 Feb 2005 13:10:02 +0100
+
+ispell-gl (0.5-13) unstable; urgency=low
+
+  * Rebuild to make sure aspell-gl-minimos is built against
+    aspell-0.50, not experimental aspell-0.60.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 14 Feb 2005 14:12:04 +0100
+
+ispell-gl (0.5-12) unstable; urgency=low
+
+  * debian/igalician-minimos.config.in:
+    - Removed extra whitespace in an open call. This only became
+      evident in woody boxes when reconfiguring the package,
+      causing compat file not being opened
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed,  9 Feb 2005 17:09:36 +0100
+
+ispell-gl (0.5-11) unstable; urgency=low
+
+  * Create myspell .aff file using ispellaff2myspell.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 25 Jan 2005 18:43:21 +0100
+
+ispell-gl (0.5-10) unstable; urgency=low
+
+  * Create dict rws as gl-minimos and refer everything to it to
+    avoid differently named personal dictionaries.
+  * Fix alias format.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 21 Dec 2004 21:01:04 +0100
+
+ispell-gl (0.5-9) unstable; urgency=low
+
+  * debian/aspell-gl-minimos.info-aspell:
+    - Fix Aspell-Locales list
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri, 18 Jun 2004 17:45:26 +0200
+
+ispell-gl (0.5-8) unstable; urgency=low
+
+  * debian/aspell-gl-minimos.info-aspell:
+    - Added an experimental Aspell-Locales entry.
+  * Modified to use ispell-autobuildhash for igalician-minimos:
+    - debian/rules: Build mwl and install it and compat file. Moved
+      igalician* package build to the binary-indep target.
+    - debian/igalician-minimos.config.in: handle reconfigure
+    - debian/igalician-minimos.{dirs,links}: New /var/lib/ispell and
+      /usr/share/ispell dirs and appropriate links.
+    - debian/control: Changed igalician-minimos architecture to all.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 19 May 2004 16:53:45 +0200
+
+ispell-gl (0.5-6) unstable; urgency=low
+
+  * Using new dictionaries-common config system. Updated
+    wgalician-minimos and igalician-minimos dependencies to
+    dictionaries-common (>=0.20) and build-dependencies to
+    dictionaries-common-dev (>=0.20) (closes: #232154, #232172)
+  * Raised Standards-Version to 3.6.1. No changes required.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 11 Feb 2004 10:41:48 +0100
+
+ispell-gl (0.5-5) unstable; urgency=low
+
+  * debian/rules modified to use installdeb-myspell:
+    - Removed myspell-gl-es.postinst, myspell-gl-es.postrm and
+      myspell-gl-es.links
+    - Made debian/control build depend on dictionaries-common-dev (>=0.16.0)
+  * debian/igalician-minimos.links: New symlink to
+    usr/lib/ispell/galician.hash as usr/share/enchant/ispell/galician.hash
+    for compatibility with enchant.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 15 Dec 2003 14:20:07 +0100
+
+ispell-gl (0.5-4) unstable; urgency=low
+
+  * Fixing myspell-gl-es section. Should go into text instead of editors.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 10 Sep 2003 17:47:33 +0200
+
+ispell-gl (0.5-3) unstable; urgency=low
+
+  * Including galician myspell dictionary package, generated from
+    the same sources as the other packages (closes: #180469)
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri,  5 Sep 2003 12:40:50 +0200
+
+ispell-gl (0.5-2) unstable; urgency=low
+
+  * debian/control:
+    -- In the wgalician-minimos section there were the aspell entries
+       for descriptions instead of the wordlist ones. Fixed. Thanks
+       to Gustavo Franco for pointing out this. (closes: #186980)
+    -- Uppercasing first char of Galician. Languages are uppercased
+       in english.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 31 Mar 2003 12:43:08 +0200
+
+ispell-gl (0.5-1) unstable; urgency=low
+
+  * New upstream release
+  * Rebuilding against new aspell:
+    -- debian/control:
+       + Changed aspell build dependency to aspell-bin (>> 0.50.0)
+       + Changed aspell-gl-minimos aspell dependency to libaspell15
+       + Bumped dictionaries-common-dev build-dependency to (>= 0.9.2).
+	 Just to avoid the (harmless) obsolete old pspell stuff to be
+	 generated.
+    -- debian/igalician-minimos.links:
+       + Removed link to usr/share/pspell/gl--minimos-ispell.pwli. pspell
+	 is no longer available.
+    -- debian/aspell-gl-minimos.links:
+       + Removed link to usr/share/pspell/gl--minimos-aspell.pwli. pspell
+	 is no longer available.
+    -- debian/*.info-* files:
+       + Removed pspell-{i,a}spell entries. Simplified the wordlist
+	 info-file. It had many unused things.
+  * Bumped 'Standards-Version' number to 3.5.8. This required no changes.
+  * debian/copyright:
+    -- Removed note about wrong copyright in affix file. Upstream has
+       already fixed this, changing the text from non-commercial to GPL.
+       The note about upstream agreeing to distribute the aff file as GPL
+       is no longer needed.
+    -- Fixed version number to the new upstream version.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 10 Feb 2003 15:41:41 +0100
+
+ispell-gl (0.3-5) unstable; urgency=low
+
+  * Adapted to new aspell (rebuild and some changes in the control file):
+    -- debian/control:
+       + Versioning dictionaries-common-dev build-dependency to (>= 0.9.1)
+	 because of the aspell helpers there provided and the system for
+	 registering aspell dicts for use under emacs.
+       + Changed aspell build dependency to aspell-bin (>> 0.50.0)
+       + In the aspell-gl-minimos: versioning dictionaries-common dependency
+	 to (>= 0.9.1) for the above reason and changing aspell dependency
+	 to libaspell15 to comply with new aspell.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu,  6 Feb 2003 11:42:35 +0100
+
+ispell-gl (0.3-4) unstable; urgency=low
+
+  * Added note to the copyright file about galician.aff file.
+    It erroneously put a non-commercial-use license instead of GPL.
+  * Added a galician_phonet.dat file thanks to upstream author,
+    Ramon Flores d'as Seixas
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 18 Nov 2002 15:32:47 +0100
+
+ispell-gl (0.3-3) unstable; urgency=low
+
+  * Explicitely calling dh_builddeb --package= for each package.
+    Previous fix was even worse since all packages were built
+    twice, once in the binary-indep target and once more in the
+    binary-arch target. (closes: #167186)
+  * Added a gl.dat link to galician.dat in /usr/share/aspell dir
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu,  7 Nov 2002 12:44:04 +0100
+
+ispell-gl (0.3-2) unstable; urgency=low
+
+  * Installing aspell gl--minimos.multi and a link as gl.multi
+  * Moving wgalician generation to binary-indep target (closes: #167186)
+  * Set package name(s) globally with DH_OPTIONS for binary-arch and
+    binary-indep targets.
+  * Moving installdeb-{i,a}spell to the install target. Otherwise would have
+    run things twice for binary-arch stuff.
+  * Be more verbose in descriptions about what the 'minimos' standard
+    is. Also make sure README.Debian is installed since that was not done
+    previously. (closes: #167167)
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 31 Oct 2002 13:38:40 +0100
+
+ispell-gl (0.3-1) unstable; urgency=low
+
+  * Initial Release to Debian: (closes: #150868).
+  * Final fine tunings of package for new policy:
+    - Lowered 'Pre-Depends: dictionaries-common' to a simple Depends.
+  * New wgalician-minimos man page.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 14 Oct 2002 13:24:01 +0200
+
+ispell-gl (0.3-0.3) unstable; urgency=low
+
+  * Changed name of resulting packages to *-minimos to make
+    more clear they refer to the minimos standard. Since this is
+    currently the only package for galician, symlinks to galician
+    are provided.
+
+  (0.3-0.2) Thu, 11 Jul 2002 14:44:28
+
+  * Adding aspell dictionary and wordlist package generation
+
+  (0.3-0.1) Mon, 24 Jun 2002 19:32:36
+
+  * Initial Release.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue,  3 Sep 2002 13:53:34 +0200

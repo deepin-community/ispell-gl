@@ -1,0 +1,6 @@
+debian/aspell/gl-minimos.dat		usr/lib/aspell
+debian/aspell/gl-minimos_phonet.dat	usr/lib/aspell
+debian/aspell/gl-minimos.multi		usr/lib/aspell
+debian/aspell/galician-minimos.alias	usr/lib/aspell
+tmp-build/gl-minimos_affix.dat		usr/lib/aspell
+tmp-build/gl-minimos.cwl.gz		usr/share/aspell

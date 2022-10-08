@@ -1,0 +1,88 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# Make sure build is always done in a reproducible and working
+# language environment
+LC_ALL = C
+export LC_ALL
+
+# Useful only to build aspell official dir
+ASPELL6BASENAME = aspell6-gl
+ASPELL6DIR      = $(CURDIR)/debian/$(ASPELL6BASENAME)
+ASPELLPROC      = /usr/share/aspell-lang/proc    # Location of proc script
+
+TMP_BUILD       = tmp-build
+DOCS_ALL 	= tmp-build/leme.txt \
+		  tmp-build/LICENZA.txt \
+		  tmp-build/normas.txt \
+		  tmp-build/readme.txt \
+		  debian/README.Debian
+
+%:
+	dh $@
+
+
+override_dh_auto_build:
+	mkdir -p $(TMP_BUILD)
+
+# -- igalician-minimos: Create compressed wordlist
+	gzip -9n -c galician.words > $(TMP_BUILD)/galician-minimos.mwl.gz
+	cp galician.aff $(TMP_BUILD)/galician-minimos.aff
+
+# -- wgalician-minimos: Create wordlist
+	buildhash galician.words galician.aff galician.hash
+	cat galician.words | \
+		ispell -d ./galician -e | \
+		tr -s ' ' '\n' | \
+		LC_ALL=POSIX sort -u | \
+		iconv -f latin1 -t utf-8 >  $(TMP_BUILD)/galician-minimos
+
+# -- aspell-gl-es: Create myspell aff file and compressed wordlist
+	ispellaff2myspell --charset=latin1 \
+		--myheader=debian/gl_ES.myheader \
+		--replacements=debian/gl_ES.replaces \
+		galician.aff > $(TMP_BUILD)/gl-minimos_affix.dat
+	cat galician.words | \
+		prezip -s -c | \
+		gzip -9n -c > $(TMP_BUILD)/gl-minimos.cwl.gz
+
+# -- Make docs utf-8
+	mkdir -p tmp
+	for i in readme.txt leme.txt normas.txt LICENZA.txt; do \
+		iconv -f iso-8859-1 -t utf-8 $$i > $(TMP_BUILD)/$$i; done
+
+override_dh_auto_clean:
+	rm -rf $(TMP_BUILD)
+	rm -f core *.hash *.stat *.cnt
+	if [ -d $(ASPELL6DIR) ]; then \
+		rm $(ASPELL6DIR)/* && rmdir $(ASPELL6DIR); fi
+
+	dh_auto_clean
+
+override_dh_auto_install:
+	installdeb-ispell   -pigalician-minimos
+	installdeb-aspell   -paspell-gl-minimos
+	installdeb-wordlist -pwgalician-minimos
+	dh_installdocs -A $(DOCS_ALL)
+
+# Useful only to build aspell official dir
+aspelltgz: clean build
+	mkdir -p $(ASPELL6DIR)
+	install -m 644 debian/aspell/Copyright $(ASPELL6DIR)
+	install -m 644 debian/aspell/info $(ASPELL6DIR)
+	install -m 644 /usr/share/common-licenses/GPL $(ASPELL6DIR)/COPYING
+	sed 's/gl-minimos/gl/' debian/aspell/gl-minimos.dat \
+		> $(ASPELL6DIR)/gl.dat
+	install -m 0644 debian/aspell/gl-minimos_phonet.dat $(ASPELL6DIR)/gl_phonet.dat
+	install -m 0644 $(TMP_BUILD)/gl-minimos_affix.dat $(ASPELL6DIR)/gl_affix.dat
+	install -m 0644 debian/README.minimos normas.txt $(ASPELL6DIR)/doc
+	cat galician.words | \
+		prezip -s -c  > $(ASPELL6DIR)/gl.wl
+	( cd $(ASPELL6DIR) && \
+		ln -sf $(ASPELLPROC) && \
+		perl proc && \
+		./configure && \
+		make dist )
+	mv $(ASPELL6DIR)/$(ASPELL6BASENAME)*.tar.bz2 ..

@@ -1,0 +1,6 @@
+# Galician (Minimos) data file
+name           gl-minimos
+charset        iso8859-1
+soundslike     gl-minimos
+affix          gl-minimos
+affix-compress true

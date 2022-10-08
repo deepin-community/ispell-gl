@@ -1,0 +1,28 @@
+Comments regarding this package:
+================================
+
+There are at least three ortograhic conventions for galician:
+ILG (official), reintegrationist and minimos. ILG uses ortographic
+conventions more similar to Spanish; reintegrationists are
+weighed towards Portuguese. Minimos tries to reach a middle
+consensus point.
+
+These packages follows the minimos convention with some changes. See
+file readme.txt for more details.
+
+Galician ispell dictionary home page:
+
+  http://ispell-gl.sourceforge.net
+
+** IMPORTANT **
+
+myspell aff file is not longer borrowed from gl_ES
+
+myspell dict is generated after ispell aff file by ispellaff2myspell,
+with replacements and headers borrowed from gl_ES. Flag names in ispell
+and upstream myspell dicts were not the same, this conversion will force
+they be the same for ispell and myspell galician dicts. If you want to
+report an error or suggest an addition for upstream, specify that there
+are ispell flags.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>, Mon, 18 Jan 2010 12:52:23 +0100
